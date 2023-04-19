@@ -1,0 +1,91 @@
+* {
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+  }
+  
+  body {
+    font-family: Arial, sans-serif;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
+    background-color: #f0f0f0;
+  }
+  
+  header {
+    width: 100%;
+    background-color: #333;
+    padding: 1rem 0;
+    text-align: center;
+  }
+  
+  h1 {
+    color: white;
+    font-weight: 300;
+  }
+  
+  main {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    width: 100%;
+    height: calc(100% - 4rem);
+    padding: 2rem 0;
+  }
+  
+  .container {
+    width: 80%;
+    height: 80%;
+  }
+  
+  canvas {
+    width: calc(100% - 40px); /* Reduce the width to prevent elements from being cut off */
+    height: calc(100% - 60px);
+    padding-left: 20px; /* Add left padding */
+    padding-right: 20px; /* Add right padding */
+    padding-top: 60px;
+    background-color: #f0f0f0;
+  }
+  
+  .controls {
+    display: flex;
+    align-items: center;
+    justify-content: space-around;
+    width: 80%;
+    margin-top: 1rem;
+  }
+  
+  .control-group {
+    display: flex;
+    align-items: center;
+    margin-right: 1rem;
+  }
+  
+  .control-group label {
+    margin-right: 0.5rem;
+  }
+  
+  button {
+    padding: 0.5rem 1rem;
+    font-size: 16px;
+    font-weight: 300;
+    border: none;
+    background-color: #007bff;
+    color: white;
+    border-radius: 3px;
+    cursor: pointer;
+    transition: background-color 0.3s;
+  }
+  
+  button:hover {
+    background-color: #0056b3;
+  }
+  
+  select, input[type="range"] {
+    font-size: 16px;
+    padding: 0.25rem 0.5rem;
+  }
+  

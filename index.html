@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="stylesheet" href="style.css" />
+    <title>Sorting Algorithm Visualizer</title>
+  </head>
+  <body>
+    <header>
+      <h1>Sorting Algorithm Visualizer</h1>
+    </header>
+    <main>
+      <div class="container">
+        <canvas id="sortingCanvas"></canvas>
+      </div>
+      <div class="controls">
+        <div class="control-group">
+          <label for="algorithm">Algorithm:</label>
+          <select id="algorithm">
+            <option value="bubble">Bubble Sort</option>
+            <option value="selection">Selection Sort</option>
+            <option value="insertion">Insertion Sort</option>
+            <option value="merge">Merge Sort</option>
+            <option value="quick">Quick Sort</option>
+            <option value="heap">Heap Sort</option>
+            <option value="counting">Counting Sort</option>
+            <option value="radix">Radix Sort</option>
+            <option value="bucket">Bucket Sort</option>
+          </select>
+        </div>
+        <div class="control-group">
+          <label for="speed">Speed:</label>
+          <input
+            type="range"
+            id="speed"
+            name="speed"
+            min="1"
+            max="1000"
+            value="500"
+          />
+        </div>        
+        <button id="shuffle">Shuffle</button>
+        <button id="sort">Sort</button>
+      </div>
+    </main>
+    <script src="script.js"></script>
+  </body>
+</html>
