@@ -1,20 +1,30 @@
 <!DOCTYPE html>
 <html lang="en">
   <head>
+    <!-- Define character encoding -->
     <meta charset="UTF-8" />
+    <!-- Set the viewport for mobile responsiveness -->
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <!-- Link the external stylesheet -->
     <link rel="stylesheet" href="style.css" />
+    <!-- Set the title of the web page -->
     <title>Sorting Algorithm Visualizer</title>
   </head>
   <body>
+    <!-- Header with the title -->
     <header>
       <h1>Sorting Algorithm Visualizer</h1>
     </header>
+    <!-- Main content -->
     <main>
+      <!-- Container for the canvas -->
       <div class="container">
+        <!-- Canvas for the sorting visualization -->
         <canvas id="sortingCanvas"></canvas>
       </div>
+      <!-- Controls for selecting algorithm and sorting -->
       <div class="controls">
+        <!-- Dropdown menu for selecting the sorting algorithm -->
         <div class="control-group">
           <label for="algorithm">Algorithm:</label>
           <select id="algorithm">
@@ -29,6 +39,7 @@
             <option value="bucket">Bucket Sort</option>
           </select>
         </div>
+        <!-- Slider for adjusting the sorting speed -->
         <div class="control-group">
           <label for="speed">Speed:</label>
           <input
@@ -39,11 +50,14 @@
             max="1000"
             value="500"
           />
-        </div>        
+        </div>
+        <!-- Shuffle button -->
         <button id="shuffle">Shuffle</button>
+        <!-- Sort button -->
         <button id="sort">Sort</button>
       </div>
     </main>
+    <!-- Include the external JavaScript file -->
     <script src="script.js"></script>
   </body>
 </html>

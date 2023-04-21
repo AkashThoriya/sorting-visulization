@@ -6,9 +6,9 @@ const findMaxSumBtn = document.getElementById("findMaxSum");
 canvas.width = canvas.parentElement.clientWidth;
 canvas.height = canvas.parentElement.clientHeight;
 
-const arrSize = 50;
+const arrSize = 20;
 const arr = [];
-const barWidth = Math.floor(canvas.width / arrSize);
+const barWidth = Math.floor(canvas.width / (arrSize+1));
 const padding = 2;
 
 function randomInt(min, max) {
@@ -22,17 +22,20 @@ function createArray() {
   }
 }
 
+// Function to draw the array on canvas with optional highlighted elements
 function drawArray(highlight = [], highlightMax = false) {
+  // Clear the canvas to start fresh
   ctx.clearRect(0, 0, canvas.width, canvas.height);
 
-  // Add shadow effect
+  // Add shadow effect to bars
   ctx.shadowColor = "rgba(0, 0, 0, 0.1)";
   ctx.shadowOffsetX = 2;
   ctx.shadowOffsetY = 2;
   ctx.shadowBlur = 4;
 
+  // Loop through the array elements and draw the bars
   for (let i = 0; i < arrSize; i++) {
-    // Create gradient colors
+    // Create gradient colors for bars depending on whether they should be highlighted
     const gradient = ctx.createLinearGradient(
       i * (barWidth + padding) + 20,
       canvas.height - 40,
@@ -48,6 +51,7 @@ function drawArray(highlight = [], highlightMax = false) {
       highlight.includes(i) ? (highlightMax ? "#388E3C" : "#EF6C00") : "#1976D2"
     );
 
+    // Fill the bars with the created gradient colors
     ctx.fillStyle = gradient;
     ctx.fillRect(
       i * (barWidth + padding) + 20,
@@ -56,7 +60,7 @@ function drawArray(highlight = [], highlightMax = false) {
       arr[i]
     );
 
-    // Add value text
+    // Add value text on top of each bar
     ctx.font = "bold 14px Arial";
 
     if (arr[i] < 20) {
@@ -84,14 +88,16 @@ function drawArray(highlight = [], highlightMax = false) {
     }
   }
 
-  // Reset shadow properties
+  // Reset shadow properties to prevent affecting other elements on the canvas
   ctx.shadowColor = "transparent";
   ctx.shadowOffsetX = 0;
   ctx.shadowOffsetY = 0;
   ctx.shadowBlur = 0;
 }
 
+// Function to draw an overlay text for displaying step information and time/space complexity
 function drawOverlayText(text, complexityText) {
+  // Set font size for the main text
   ctx.font = "20px Arial";
 
   // Calculate the width of the text and the background rectangle
@@ -101,7 +107,7 @@ function drawOverlayText(text, complexityText) {
   );
   const backgroundWidth = textWidth + 40;
 
-  // Draw a semi-transparent rounded rectangle as the background
+  // Draw a semi-transparent rounded rectangle as the background for the text
   ctx.fillStyle = "rgba(0, 0, 0, 0.5)";
   const borderRadius = 10;
   ctx.beginPath();
