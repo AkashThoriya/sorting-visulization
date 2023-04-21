@@ -8,7 +8,7 @@ canvas.height = canvas.parentElement.clientHeight;
 
 const arrSize = 20;
 const arr = [];
-const barWidth = Math.floor(canvas.width / (arrSize+1));
+const barWidth = Math.floor(canvas.width / (arrSize + 1));
 const padding = 2;
 
 function randomInt(min, max) {
@@ -306,14 +306,20 @@ async function partition(arr, low, high, delay, complexityText) {
       i++;
       [arr[i], arr[j]] = [arr[j], arr[i]];
 
-      drawOverlayText(`Swapping elements at indices ${i} and ${j}`, complexityText);
+      drawOverlayText(
+        `Swapping elements at indices ${i} and ${j}`,
+        complexityText
+      );
       drawArray([i, j]);
       await new Promise((resolve) => setTimeout(resolve, delay));
     }
   }
   [arr[i + 1], arr[high]] = [arr[high], arr[i + 1]];
 
-  drawOverlayText(`Swapping elements at indices ${i + 1} and ${high}`, complexityText);
+  drawOverlayText(
+    `Swapping elements at indices ${i + 1} and ${high}`,
+    complexityText
+  );
   drawArray([i + 1, high]);
   await new Promise((resolve) => setTimeout(resolve, delay));
 
@@ -452,7 +458,6 @@ async function countingSort(delay) {
   ctx.clearRect(0, 0, canvas.width, 80);
 }
 
-
 async function countingSortByDigit(arr, exp, delay, complexityText) {
   const output = new Array(arr.length).fill(0);
   const count = new Array(10).fill(0);
@@ -500,7 +505,10 @@ async function countingSortRadix(arr, exp, delay, complexityText) {
   }
 
   for (let i = 0; i < n; i++) {
-    drawOverlayText(`Updating array with sorted elements based on current digit`, complexityText);
+    drawOverlayText(
+      `Updating array with sorted elements based on current digit`,
+      complexityText
+    );
     await new Promise((resolve) => setTimeout(resolve, delay));
     arr[i] = output[i];
     drawArray([i]);
@@ -513,7 +521,10 @@ async function radixSort(delay) {
   let exp = 1;
 
   while (Math.floor(max / exp) > 0) {
-    drawOverlayText(`Sorting array based on digit at place ${exp}`, complexityText);
+    drawOverlayText(
+      `Sorting array based on digit at place ${exp}`,
+      complexityText
+    );
     await new Promise((resolve) => setTimeout(resolve, delay));
 
     await countingSortRadix(arr, exp, delay, complexityText);
@@ -522,8 +533,6 @@ async function radixSort(delay) {
 
   ctx.clearRect(0, 0, canvas.width, 80);
 }
-
-
 
 // Bucket Sort
 async function insertionSortBucket(bucket, delay, complexityText) {
